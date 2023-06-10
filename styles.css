@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&family=Rubik:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&family=Rubik:wght@300;400;500&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
-  --color1: #FFB52E;
-  --color2: #7A871E;
+  --color1: #ffb52e;
+  --color2: #7a871e;
 }
 
-section{
+section {
   background-color: var(--color2);
   display: flex;
   justify-content: center;
@@ -20,8 +20,8 @@ section{
   min-height: 100vh;
 }
 
-section::before{
-  content: '';
+section::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@ section::before{
   background-color: var(--color1);
 }
 
-.container{
+.container {
   position: relative;
   min-width: 1100px;
   min-height: 550px;
@@ -38,7 +38,7 @@ section::before{
   z-index: 1000;
 }
 
-.container .contactInfo{
+.container .contactInfo {
   background: var(--color2);
   border-radius: 20px;
   position: absolute;
@@ -54,8 +54,8 @@ section::before{
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.container .contactInfo h2{
-  color: #FFFF;
+.container .contactInfo h2 {
+  color: #ffff;
   font-size: 24px;
   font-weight: 500;
   display: flex;
@@ -63,14 +63,23 @@ section::before{
   justify-content: center;
 }
 
-.container .contactForm{
+.container .formResult {
   border-radius: 20px;
-  background: #FFF;
+  background: #fff;
   position: absolute;
-  padding: 70px 50px;
-  padding-left: 250px;
+  padding: 30px 50px;
+  padding-left: 220px;
   margin-left: 150px;
   width: calc(100% - 150px);
   height: 100%;
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.25);
+}
+
+.clock {
+  color: var(--color2);
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }

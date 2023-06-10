@@ -14,21 +14,61 @@
   </head>
   <body>
     <section>
+      <div class="clockDiv"></div>
       <div class="container">
         <div class="contactInfo">
-          <h2>Date Personale</h2>
+          <h2>Formular de informații</h2>
           <div class="formBox">
             <div class="inputBox w50">
-              <input type="text" required>
-              <span>Nume</span>
+              <span>Nume: </span>
+              <input type="text" id="numeInput" required />
+            </div>
+            <div class="inputBox w50">
+              <span>Data nașterii: </span>
+              <input type="date" id="varstaInput" required />
+            </div>
+            <div class="inputBox w50">
+              <label for="locationSelect">Localitate:</label>
+              <select id="locationSelect" required>
+                <option value="">-- Selectează --</option>
+                <option value="București">București</option>
+                <option value="Cluj-Napoca">Cluj-Napoca</option>
+                <option value="Iași">Iași</option>
+                <option value="Timișoara">Timișoara</option>
+                <option value="Alta">Altă localitate</option>
+              </select>
+            </div>
+            <div class="inputBox w50">
+              <label>Preferințe:</label>
+              <div>
+                <input
+                  type="radio"
+                  id="likeCats"
+                  name="preference"
+                  value="like"
+                />
+                <label for="likeCats">Îmi plac pisicile</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="dislikeCats"
+                  name="preference"
+                  value="dislike"
+                />
+                <label for="dislikeCats">Nu-mi plac pisicile</label>
+              </div>
             </div>
             <div class="inputBox w100">
-              <input type="submit" placeholder="">
-              <span></span>
+              <button id="submitButton">Trimite</button>
             </div>
           </div>
         </div>
-        <div class="contactForm"></div>
+        <div class="formResult">
+          <h1 class="clock" id="clock"></h1>
+          <p id="greeting"></p><br>
+          <p id="result"></p>
+        </div>
       </div>
     </section>
     <script src="index.js"></script>
