@@ -82,4 +82,19 @@ section::before {
   align-items: center;
   justify-content: center;
   margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.formResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.formResult img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
 }

@@ -8,9 +8,9 @@ function displayGreeting() {
   var age = now.getFullYear() - birthDate.getFullYear();
   var sentence = document.getElementById("greeting");
   var location = document.getElementById("locationSelect").value;
-  var preference = document.querySelector('input[name="preference"]:checked')?.value || "";
+  var preference =
+    document.querySelector('input[name="preference"]:checked')?.value || "";
   var result = document.getElementById("result");
-
 
   // Ajustarea varstei daca luna curenta este inainte de luna nasterii
   if (now.getMonth() < birthDate.getMonth()) {
@@ -25,7 +25,7 @@ function displayGreeting() {
   }
 
   if (name === "") {
-    sentence.textContent = "Te rog completeaza numele.";
+    sentence.textContent = "Te rog completeaza numele";
     sentence.style.color = "red";
   } else if (isNaN(birthDate.getTime())) {
     sentence.textContent = "Te rog completeaza varsta.";
@@ -39,23 +39,47 @@ function displayGreeting() {
     sentence.style.color = "black";
   }
 
+  var textContent = ""; // Variable to store the text content
+  var htmlContent = ""; // Variable to store the HTML content
+  const imageStyle =
+    "display: block; margin: 0 auto; max-width: 200px; margin-top: 20px; border-radius:10px"; // Center the images and set their max-width to 200px
 
   if (location === "") {
-    sentence += "Nu ai selectat o localitate.";
+    sentence.textContent += ", localitatea";
+    sentence.style.color = "red";
   } else {
-    sentence += "Esti din " + location + "? Ce tare.";
+    textContent += "Esti din " + location + "? Ce tare.";
   }
 
   if (preference === "like") {
-    sentence += "";
-    sentence += " Și, cum ai bifat că-ți plac pisicile, iată o poză cu o pisică:";
-    sentence += ' <img src="link-cat-image" alt="Pisică">';
-  }else{
-    sentence += " Nu-ti plac pisicile? Stai linistit, nici mie, iata o poza cu un caine:";
-    sentence += ' <img src="link-cat-image" alt="Caine">';
+    textContent +=
+      " Și, cum ai bifat că-ți plac pisicile, iată o poză cu o pisică:";
+    // Fetch a random cat image from the Cat API
+    fetch("https://api.thecatapi.com/v1/images/search")
+      .then((response) => response.json())
+      .then((data) => {
+        const imageUrl = data[0].url;
+        htmlContent += `<img src="${imageUrl}" alt="Pisică" style="${imageStyle}">`;
+        result.innerHTML = textContent + htmlContent;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else {
+    textContent +=
+      " Nu-ți plac pisicile? Stai liniștit, nici mie, iată o poză cu un câine:";
+    // Fetch a random dog image from the Dog API
+    fetch("https://api.thedogapi.com/v1/images/search")
+      .then((response) => response.json())
+      .then((data) => {
+        const imageUrl = data[0].url;
+        htmlContent += `<img src="${imageUrl}" alt="Câine" style="${imageStyle}">`;
+        result.innerHTML = textContent + htmlContent;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
-
-  result.innerHTML = sentence;
 }
 
 window.addEventListener("DOMContentLoaded", function () {
