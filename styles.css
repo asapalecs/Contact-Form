@@ -10,6 +10,7 @@
 :root {
   --color1: #ffb52e;
   --color2: #7a871e;
+  --hover-color-1: #fca503;
 }
 
 section {
@@ -46,7 +47,6 @@ section::before {
   width: 350px;
   height: calc(100% - 80px);
   z-index: 1;
-  padding: 40px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -83,6 +83,65 @@ section::before {
   justify-content: center;
   margin-bottom: 5px;
   margin-top: 0;
+}
+
+.formBox {
+  width: 100%;
+}
+
+.contactInfo {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+.contactInfo h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formBox {
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.formBox .inputBox {
+  margin-bottom: 20px;
+}
+
+.formBox .inputBox label {
+  margin-bottom: 5px;
+}
+
+.formBox .inputBox input[type="text"],
+.formBox .inputBox input[type="date"],
+.formBox .inputBox select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.formBox .inputBox select {
+  height: 40px;
+}
+
+
+.formBox .inputBox button {
+  padding: 10px 20px;
+  background-color: var(--color1);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.formBox .inputBox button:hover {
+  background-color: var(--hover-color-1);
 }
 
 .formResult {
